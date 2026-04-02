@@ -21,7 +21,7 @@ Bienvenido a **SQL Learning Cheatsheet**, una guía interactiva y visual diseña
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/sql-learning-cheatsheet.git
+git clone https://github.com/D1se0/sql-learning.git
 ```
 
 2. Abre `start.html` en tu navegador para comenzar.
