@@ -1,0 +1,46 @@
+<!-- SECCIÓN BETWEEN -->
+<div id="between-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL BETWEEN Operator</h1>
+
+            <p>The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates.</p>
+            <p>The BETWEEN operator is inclusive: begin and end values are included.</p>
+
+            <h2>BETWEEN Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s) 
+FROM table_name
+WHERE column_name BETWEEN value1 AND value2;</code></pre>
+
+            <h2>BETWEEN Example</h2>
+            <p>The following SQL statement selects all patients with a weight between 100 and 120:</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE weight BETWEEN 100 AND 120;</code></pre>
+
+            <h2>NOT BETWEEN Example</h2>
+            <p>To display the products outside the range of the previous example, use NOT BETWEEN:</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE weight NOT BETWEEN 100 AND 120;</code></pre>
+
+            <h2>BETWEEN with IN Example</h2>
+            <p>The following SQL statement selects all patients with a weight between 100 and 120. In addition; do not
+                show patients located in 'ON', 'SK', or 'AB':</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE weight BETWEEN 100 AND 120
+AND province_id NOT IN ('ON', 'SK', 'AB');</code></pre>
+
+            <h2>BETWEEN with Text</h2>
+            <p>Text is compared based on the ASCII value of the text. For example, 'c'(99) is between 'a'(97) and
+                'e'(101) but 'C'(67) is not between 'a'(97) and 'e'(101).</p>
+
+            <p>The following SQL statement selects all patients with their first_name between 'Alex' and 'Ben':</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE first_name BETWEEN 'Alex' AND 'Ben';</code></pre>
+        </div>
+    </div>
+</div>

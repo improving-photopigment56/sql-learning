@@ -1,0 +1,23 @@
+<!-- SECCIÓN DROP TABLE -->
+<div id="drop-table-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL DROP TABLE Statement</h1>
+
+            <p>The <strong>DROP TABLE</strong> statement is used to remove an existing table from a database.</p>
+
+            <h2>DROP TABLE Syntax</h2>
+            <pre><code class="language-sql">DROP TABLE table_name;</code></pre>
+            <p><strong>Note:</strong> Be careful before dropping a table. Deleting a table will result in the loss of
+                all data stored in it!</p>
+
+            <h2>SQL DROP TABLE Example</h2>
+            <p>The following SQL statement drops the existing table <strong>patients</strong>:</p>
+            <pre><code class="language-sql">DROP TABLE patients;
+
+-- Attempt to query the table after dropping it
+SELECT * FROM patients;</code></pre>
+        </div>
+    </div>
+</div>

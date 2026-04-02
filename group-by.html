@@ -1,0 +1,33 @@
+<!-- SECCIÓN GROUP BY -->
+<div id="groupby-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL GROUP BY Statement</h1>
+
+            <p>The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of
+                patients in each province".</p>
+            <p>The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to
+                group the result-set by one or more columns.</p>
+
+            <h2>GROUP BY Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s);</code></pre>
+
+            <h2>SQL GROUP BY Examples</h2>
+
+            <p>The following SQL statement lists the number of patients in each province:</p>
+            <pre><code class="language-sql">SELECT COUNT(*), province_id
+FROM patients
+GROUP BY province_id;</code></pre>
+
+            <p>The following SQL statement lists the number of patients in each province, sorted high to low:</p>
+            <pre><code class="language-sql">SELECT COUNT(*), province_id
+FROM patients
+GROUP BY province_id
+ORDER BY COUNT(*) DESC;</code></pre>
+        </div>
+    </div>
+</div>

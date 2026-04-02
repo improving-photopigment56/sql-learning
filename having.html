@@ -1,0 +1,35 @@
+<!-- SECCIÓN HAVING -->
+<div id="having-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL HAVING Clause</h1>
+
+            <p>The HAVING clause was added to SQL because the WHERE keyword cannot be used with aggregate functions.</p>
+
+            <h2>HAVING Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);</code></pre>
+
+            <h2>SQL HAVING Examples</h2>
+
+            <p>The following SQL statement lists the names of patients with a common first_name (> 30 occurrences):</p>
+            <pre><code class="language-sql">SELECT COUNT(*), first_name
+FROM patients
+GROUP BY first_name
+HAVING COUNT(*) > 30;</code></pre>
+
+            <p>The following SQL statement lists the names of patients with a common first_name (> 30 occurrences),
+                sorted high to low:</p>
+            <pre><code class="language-sql">SELECT COUNT(*), first_name
+FROM patients
+GROUP BY first_name
+HAVING COUNT(*) > 30
+ORDER BY COUNT(*) DESC;</code></pre>
+        </div>
+    </div>
+</div>

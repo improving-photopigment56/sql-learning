@@ -1,0 +1,25 @@
+<!-- SECCIÓN DELETE -->
+<div id="delete-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL DELETE Statement</h1>
+            <p>The DELETE statement is used to delete existing records in a table.</p>
+
+            <h2>DELETE Syntax</h2>
+            <pre><code class="language-sql">DELETE FROM tablename WHERE condition;</code></pre>
+
+            <p><strong>Note:</strong> Be sure to specify the where clause. Failing to include the where clause will
+                result in all of the rows to be deleted.</p>
+
+            <h2>SQL DELETE Example</h2>
+            <p>The following SQL statement deletes all patients named "Paul" from the "patients" table:</p>
+
+            <pre><code class="language-sql">DELETE FROM patients WHERE first_name = 'Paul';
+
+-- There are no longer any patients named 'Paul' in the database
+
+SELECT * FROM patients WHERE first_name = 'Paul';</code></pre>
+        </div>
+    </div>
+</div>

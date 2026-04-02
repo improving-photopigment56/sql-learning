@@ -1,0 +1,24 @@
+<!-- SECCIÓN COUNT() -->
+<div id="count-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL COUNT() Function</h1>
+
+            <p>The <strong>COUNT()</strong> function returns the number of rows that match a specified criterion.</p>
+            <p>COUNT() usually has <code>*</code> as its parameter because the name of the column does not usually
+                matter since they all have the same count.</p>
+
+            <h2>COUNT() Syntax</h2>
+            <pre><code class="language-sql">SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;</code></pre>
+
+            <h2>COUNT() Example</h2>
+            <p>The following SQL statement finds the number of patients that weigh over 120Kg:</p>
+            <pre><code class="language-sql">SELECT COUNT(*) 
+FROM patients 
+WHERE weight > 120;</code></pre>
+        </div>
+    </div>
+</div>

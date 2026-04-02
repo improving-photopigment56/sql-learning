@@ -1,0 +1,67 @@
+<!-- SECCIÓN FOREIGN KEY -->
+<div id="foreign-key-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL FOREIGN KEY Constraint</h1>
+
+            <p>The <strong>FOREIGN KEY</strong> constraint is used to prevent actions that would destroy links between
+                tables.</p>
+            <p>A FOREIGN KEY is a field (or collection of fields) in one table that refers to the <strong>PRIMARY
+                    KEY</strong> in another table.</p>
+            <p>The table with the foreign key is called the <strong>child table</strong>, and the table with the primary
+                key is called the <strong>referenced</strong> or <strong>parent table</strong>.</p>
+            <p>The FOREIGN KEY constraint prevents invalid data from being inserted into the foreign key column because
+                it must exist in the parent table.</p>
+
+            <h2>FOREIGN KEY on CREATE TABLE</h2>
+            <p>The following SQL creates a FOREIGN KEY on the "PersonID" column when the "Orders" table is created:</p>
+            <pre><code class="language-sql">-- MySQL
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);</code></pre>
+
+            <pre><code class="language-sql">-- SQL Server / Oracle / MS Access
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);</code></pre>
+
+            <p>To name a FOREIGN KEY constraint or define it on multiple columns:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);</code></pre>
+
+            <h2>FOREIGN KEY on ALTER TABLE</h2>
+            <p>To create a FOREIGN KEY on an existing table:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+ALTER TABLE Orders
+ADD FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);
+
+-- Naming or multiple columns
+ALTER TABLE Orders
+ADD CONSTRAINT FK_PersonOrder
+FOREIGN KEY (PersonID) REFERENCES Persons(PersonID);</code></pre>
+
+            <h2>Drop a FOREIGN KEY Constraint</h2>
+            <pre><code class="language-sql">-- MySQL
+ALTER TABLE Orders
+DROP FOREIGN KEY FK_PersonOrder;
+
+-- SQL Server / Oracle / MS Access
+ALTER TABLE Orders
+DROP CONSTRAINT FK_PersonOrder;</code></pre>
+        </div>
+    </div>
+</div>

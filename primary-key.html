@@ -1,0 +1,66 @@
+<!-- SECCIÓN PRIMARY KEY -->
+<div id="primary-key-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL PRIMARY KEY Constraint</h1>
+
+            <p>The <strong>PRIMARY KEY</strong> constraint uniquely identifies each record in a table.</p>
+            <p>Primary keys must contain <strong>UNIQUE</strong> values, and cannot contain <strong>NULL</strong>
+                values.</p>
+            <p>A table can have only <strong>ONE</strong> primary key; this primary key can consist of single or
+                multiple columns (fields).</p>
+
+            <h2>PRIMARY KEY on CREATE TABLE</h2>
+            <p>The following SQL creates a PRIMARY KEY on the "ID" column when the "Persons" table is created:</p>
+            <pre><code class="language-sql">-- MySQL
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (ID)
+);</code></pre>
+
+            <pre><code class="language-sql">-- SQL Server / Oracle / MS Access
+CREATE TABLE Persons (
+    ID int NOT NULL PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);</code></pre>
+
+            <p>To name a PRIMARY KEY constraint or define it on multiple columns:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT PK_Person PRIMARY KEY (ID, LastName)
+);</code></pre>
+
+            <h2>PRIMARY KEY on ALTER TABLE</h2>
+            <p>To create a PRIMARY KEY on an existing table:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+ALTER TABLE Persons
+ADD PRIMARY KEY (ID);
+
+-- Naming or multiple columns
+ALTER TABLE Persons
+ADD CONSTRAINT PK_Person PRIMARY KEY (ID, LastName);</code></pre>
+
+            <p><em>Note:</em> If you use ALTER TABLE to add a primary key, the primary key column(s) must have been
+                declared NOT NULL when the table was first created.</p>
+
+            <h2>Drop a PRIMARY KEY Constraint</h2>
+            <pre><code class="language-sql">-- MySQL
+ALTER TABLE Persons
+DROP PRIMARY KEY;
+
+-- SQL Server / Oracle / MS Access
+ALTER TABLE Persons
+DROP CONSTRAINT PK_Person;</code></pre>
+        </div>
+    </div>
+</div>

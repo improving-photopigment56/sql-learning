@@ -1,0 +1,70 @@
+<!-- SECCIÓN AUTO-INCREMENT -->
+<div id="auto-increment-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>AUTO INCREMENT Field</h1>
+
+            <p>Auto-increment allows a unique number to be generated automatically when a new record is inserted into a
+                table.
+                Often this is the primary key field that is created automatically for each new record.</p>
+
+            <h2>MySQL Syntax</h2>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+-- Start AUTO_INCREMENT with another value
+ALTER TABLE Persons AUTO_INCREMENT=100;
+
+-- Insert without specifying Personid
+INSERT INTO Persons (FirstName, LastName)
+VALUES ('Lars','Monsen');</code></pre>
+
+            <h2>SQL Server Syntax</h2>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+-- Tip: Start at 10, increment by 5
+-- Personid int IDENTITY(10,5) PRIMARY KEY
+
+INSERT INTO Persons (FirstName, LastName)
+VALUES ('Lars','Monsen');</code></pre>
+
+            <h2>MS Access Syntax</h2>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    Personid AUTOINCREMENT PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+-- Tip: Start at 10, increment by 5
+-- AUTOINCREMENT(10,5)
+
+INSERT INTO Persons (FirstName, LastName)
+VALUES ('Lars','Monsen');</code></pre>
+
+            <h2>Oracle Syntax</h2>
+            <p>Oracle requires a sequence object to implement auto-increment:</p>
+            <pre><code class="language-sql">-- Create sequence
+CREATE SEQUENCE seq_person
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+-- Insert using nextval
+INSERT INTO Persons (Personid, FirstName, LastName)
+VALUES (seq_person.nextval, 'Lars', 'Monsen');</code></pre>
+        </div>
+    </div>
+</div>

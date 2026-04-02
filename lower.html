@@ -1,0 +1,30 @@
+<!-- SECCIÓN LOWER STRING FUNCTION -->
+<div id="lower-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL LOWER() Function</h1>
+
+            <p>The <strong>LOWER()</strong> function returns a string in lowercase. Example: <code>'ExAmple'</code> →
+                <code>'example'</code>.</p>
+
+            <p><strong>Note:</strong> Depending on the SQL language, LOWER() may also be called
+                <strong>LCASE()</strong>.</p>
+
+            <h2>Syntax</h2>
+            <pre><code class="language-sql">LOWER(string)</code></pre>
+
+            <h2>Parameter Values</h2>
+            <ul>
+                <li><strong>string</strong>: Required. The string to convert to lowercase.</li>
+            </ul>
+
+            <h2>LOWER() Example</h2>
+            <p>The following SQL statement shows each patient's <strong>first_name</strong> in lowercase:</p>
+
+            <pre><code class="language-sql">SELECT first_name, LOWER(first_name) AS lowercase_name
+FROM patients;</code></pre>
+
+        </div>
+    </div>
+</div>

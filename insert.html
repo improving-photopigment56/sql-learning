@@ -1,0 +1,48 @@
+<!-- SECCIÓN INSERT -->
+<div id="insert-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL INSERT Statement</h1>
+            <p>INSERT INTO statement is used to insert new records in a table.</p>
+
+            <h2>INSERT INTO Syntax</h2>
+            <p>It is possible to write the INSERT INTO statement in two ways:</p>
+
+            <p>1. Specify both the column names and the values to be inserted:</p>
+            <pre><code class="language-sql">INSERT INTO tablename (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);</code></pre>
+
+            <p>2. If you are adding values for all the columns of the table, you do not need to specify the column names
+                in the SQL query. However, make sure the order of the values is in the same order as the columns in the
+                table.</p>
+
+            <pre><code class="language-sql">INSERT INTO tablename
+VALUES (value1, value2, value3, ...);</code></pre>
+
+            <h2>INSERT INTO Example</h2>
+            <p>The following SQL statement inserts a new record in the patients table:</p>
+
+            <pre><code class="language-sql">-- Insert a record
+INSERT INTO patients (first_name, last_name, gender, birth_date, city, province_id, allergies, weight, height)
+VALUES ('John', 'Smith', 'M', '1994-02-21', 'Hamilton', 'ON', NULL, 132, 182);
+
+-- Select the most recent record by id
+SELECT * FROM patients
+WHERE patient_id = (SELECT MAX(patient_id) FROM patients);</code></pre>
+
+            <h2>Insert Data Only in Specified Columns</h2>
+            <p>It is also possible to only insert data in specific columns.</p>
+            <p>If the table column allow for NULL values then you do not need to include the column in your insert
+                statement.</p>
+
+            <pre><code class="language-sql">-- Insert a record
+INSERT INTO patients (first_name, last_name, gender)
+VALUES ('Jane', 'Doe', 'F');
+
+-- Select the most recent record by id
+SELECT * FROM patients
+WHERE patient_id = (SELECT MAX(patient_id) FROM patients);</code></pre>
+        </div>
+    </div>
+</div>

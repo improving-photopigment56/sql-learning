@@ -1,0 +1,30 @@
+<!-- SECCIÓN NOT NULL -->
+<div id="not-null-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL NOT NULL Constraint</h1>
+
+            <p>By default, a column can hold NULL values.</p>
+            <p>The <strong>NOT NULL</strong> constraint enforces a column to NOT accept NULL values.</p>
+            <p>This ensures a field always contains a value, which means you cannot insert a new record or update a
+                record without providing a value for this field.</p>
+
+            <h2>NOT NULL on CREATE TABLE</h2>
+            <p>The following SQL ensures that the "ID", "LastName", and "FirstName" columns will NOT accept NULL values
+                when creating the "Persons" table:</p>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255) NOT NULL,
+    Age int
+);</code></pre>
+
+            <h2>NOT NULL on ALTER TABLE</h2>
+            <p>Note: We do not support this syntax directly.</p>
+            <p>To create a NOT NULL constraint on the "Age" column after the table is already created:</p>
+            <pre><code class="language-sql">ALTER TABLE Persons
+MODIFY Age int NOT NULL;</code></pre>
+        </div>
+    </div>
+</div>

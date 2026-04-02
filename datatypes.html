@@ -1,0 +1,62 @@
+<!-- SECCIÓN DATA TYPES -->
+<div id="datatypes-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL Data Types for MySQL, SQL Server, and MS Access</h1>
+
+            <p>The data type of a column defines what value the column can hold: integer, character, money, date and
+                time, binary, and more.</p>
+
+            <h2>Overview</h2>
+            <p>Each column in a table requires a name and a data type. The SQL developer chooses the type of data
+                stored, which affects storage, validation, and behavior. Note: data types differ across databases.</p>
+
+            <h2>MySQL Data Types</h2>
+            <h3>String</h3>
+            <ul>
+                <li><strong>CHAR(size)</strong>: Fixed length string, 0-255 characters.</li>
+                <li><strong>VARCHAR(size)</strong>: Variable length string, up to 65535 characters.</li>
+                <li><strong>BINARY(size)</strong>: Fixed-length binary string.</li>
+                <li><strong>VARBINARY(size)</strong>: Variable-length binary string.</li>
+                <li><strong>TINYBLOB / TINYTEXT</strong>: Max length 255 bytes / chars.</li>
+                <li><strong>TEXT / BLOB</strong>: Max length 65535 bytes / chars.</li>
+                <li><strong>MEDIUMTEXT / MEDIUMBLOB</strong>: Max length 16,777,215 bytes / chars.</li>
+                <li><strong>LONGTEXT / LONGBLOB</strong>: Max length 4,294,967,295 bytes / chars.</li>
+                <li><strong>ENUM / SET</strong>: Predefined lists of values.</li>
+            </ul>
+
+            <h3>Numeric</h3>
+            <ul>
+                <li><strong>INT / INTEGER / BIGINT / SMALLINT / MEDIUMINT / TINYINT</strong>: Integer types with various
+                    ranges.</li>
+                <li><strong>FLOAT / DOUBLE / DECIMAL</strong>: Floating-point and exact numeric types.</li>
+                <li><strong>BIT</strong>: Bit values, 1–64 bits.</li>
+                <li><strong>BOOL / BOOLEAN</strong>: True/False values.</li>
+            </ul>
+
+            <h3>Date and Time</h3>
+            <ul>
+                <li><strong>DATE</strong>: YYYY-MM-DD</li>
+                <li><strong>DATETIME / TIMESTAMP</strong>: Date and time values</li>
+                <li><strong>TIME</strong>: Time only</li>
+                <li><strong>YEAR</strong>: Four-digit year</li>
+            </ul>
+
+            <h2>SQL Server Data Types</h2>
+            <ul>
+                <li>String: char(n), varchar(n), varchar(max), text, nchar, nvarchar(n), nvarchar(max), ntext</li>
+                <li>Numeric: bit, tinyint, smallint, int, bigint, decimal(p,s), numeric(p,s), smallmoney, money,
+                    float(n), real</li>
+                <li>Date/Time: datetime, datetime2, smalldatetime, date, time, datetimeoffset, timestamp</li>
+                <li>Other: sql_variant, uniqueidentifier, xml, cursor, table</li>
+            </ul>
+
+            <h2>MS Access Data Types</h2>
+            <ul>
+                <li>Text, Memo, Byte, Integer, Long, Single, Double, Currency, AutoNumber, Date/Time, Yes/No, Ole
+                    Object, Hyperlink, Lookup Wizard</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SQL Learning</title>
+
+  <!-- Prism CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.css" rel="stylesheet" />
+
+  <style>
+    /* ===== BODY & LAYOUT ===== */
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background: #0f1117;
+      color: #e6e6e6;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: 320px;
+      background: #151922;
+      padding: 15px;
+      overflow-y: auto;
+      border-right: 2px solid #2c2f3a;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background-color: #ff4b5c;
+      border-radius: 10px;
+    }
+
+    .tab__header strong {
+      font-size: 20px;
+      color: #ff4b5c;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .tab__header-thin {
+      cursor: pointer;
+      padding: 10px 15px;
+      background: #1c2230;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      transition: all 0.2s ease;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .tab__header-thin:hover {
+      background: #ff4b5c;
+      color: #fff;
+    }
+
+    .tab-content-thin {
+      display: none;
+      padding-left: 15px;
+      margin-bottom: 10px;
+    }
+
+    .learning-resource-container a {
+      display: block;
+      padding: 8px 12px;
+      margin: 4px 0;
+      background: #22293a;
+      color: #ff4b5c;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .learning-resource-container a:hover {
+      background: #ff4b5c;
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    /* ===== CONTENT AREA ===== */
+    .content {
+      flex: 1;
+      padding: 40px 60px;
+      overflow-y: auto;
+      background: #0f1117;
+    }
+
+    .content h1 {
+      font-size: 36px;
+      color: #ff4b5c;
+      border-bottom: 2px solid #ff4b5c;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    .content h2 {
+      margin-top: 30px;
+      color: #ff6f81;
+    }
+
+    .content p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* ===== CODE BLOCKS ===== */
+    pre {
+      background: #1b1f2a;
+      border: 1px solid #30363d;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+      box-shadow: inset 0 0 8px #ff4b5c33;
+      margin-bottom: 20px;
+    }
+
+    code {
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+    }
+
+    /* ===== SCROLLBAR FOR CONTENT ===== */
+    .content::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .content::-webkit-scrollbar-thumb {
+      background: #ff4b5c;
+      border-radius: 10px;
+    }
+
+    /* ===== COLLAPSE ICON ===== */
+    .tab__header-thin::after {
+      content: '+';
+      float: right;
+      transition: transform 0.2s ease;
+    }
+
+    .tab__header-thin.active::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="tab__header">
+      <strong>Learning SQL</strong>
+    </div>
+
+    <div class="dropdown-container-thin">
+      <div class="tab__header-thin" onclick="toggle(this)">
+        <strong>Query Basics</strong>
+      </div>
+      <div class="tab-content-thin" style="display:block;">
+        <div class="learning-resource-container">
+          <a href="#" onclick="loadSection('select.html')">Select Statement</a>
+          <a href="#" onclick="loadSection('insert.html')">Insert Statement</a>
+          <a href="#" onclick="loadSection('delete.html')">Delete Statement</a>
+          <a href="#" onclick="loadSection('update.html')">Update Statement</a>
+          <a href="#" onclick="loadSection('where.html')">Where Clause</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-container-thin">
+      <div class="tab__header-thin" onclick="toggle(this)">
+        <strong>Query Filtering</strong>
+      </div>
+      <div class="tab-content-thin">
+        <div class="learning-resource-container">
+          <a href="#" onclick="loadSection('operators.html')">Operators</a>
+          <a href="#" onclick="loadSection('order-by.html')">Order By</a>
+          <a href="#" onclick="loadSection('like.html')">Like</a>
+          <a href="#" onclick="loadSection('in.html')">In</a>
+          <a href="#" onclick="loadSection('between.html')">Between</a>
+          <a href="#" onclick="loadSection('join.html')">Join</a>
+          <a href="#" onclick="loadSection('union.html')">Union</a>
+          <a href="#" onclick="loadSection('group-by.html')">Group By</a>
+          <a href="#" onclick="loadSection('having.html')">Having</a>
+          <a href="#" onclick="loadSection('case.html')">Case</a>
+          <a href="#" onclick="loadSection('distinct.html')">Distinct</a>
+          <a href="#" onclick="loadSection('exists.html')">Exists</a>
+          <a href="#" onclick="loadSection('any-all.html')">Any, All</a>
+          <a href="#" onclick="loadSection('ifnull.html')">Ifnull</a>
+          <a href="#" onclick="loadSection('null-values.html')">Null Values</a>
+          <a href="#" onclick="loadSection('aliases.html')">Aliases</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown-container-thin">
+      <div class="tab__header-thin" onclick="toggle(this)">
+        <strong>Functions</strong>
+      </div>
+      <div class="tab-content-thin">
+
+        <!-- Aggregate -->
+        <div class="dropdown-container-thin">
+          <div class="tab__header-thin" onclick="toggle(this)">
+            <strong>Aggregate</strong>
+          </div>
+          <div class="tab-content-thin">
+            <div class="learning-resource-container">
+              <a href="#" onclick="loadSection('count.html')">COUNT</a>
+              <a href="#" onclick="loadSection('avg.html')">AVG</a>
+              <a href="#" onclick="loadSection('sum.html')">SUM</a>
+              <a href="#" onclick="loadSection('max.html')">MAX</a>
+              <a href="#" onclick="loadSection('min.html')">MIN</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder for future subcategories -->
+        <div class="dropdown-container-thin">
+          <div class="tab__header-thin" onclick="toggle(this)">
+            <strong>Window</strong>
+          </div>
+          <div class="tab-content-thin">
+            <div class="learning-resource-container">
+              <a href="#" onclick="loadSection('window-function-basic.html')">Window Function Basics</a>
+              <a href="#" onclick="loadSection('lag.html')">LAG</a>
+              <a href="#" onclick="loadSection('lead.html')">LEAD</a>
+              <a href="#" onclick="loadSection('first-value.html')">FIRST_VALUE</a>
+              <a href="#" onclick="loadSection('last-value.html')">LAST_VALUE</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-container-thin">
+          <div class="tab__header-thin" onclick="toggle(this)">
+            <strong>String</strong>
+          </div>
+          <div class="tab-content-thin">
+            <div class="learning-resource-container">
+              <a href="#" onclick="loadSection('concat.html')">CONCAT</a>
+              <a href="#" onclick="loadSection('len.html')">LEN</a>
+              <a href="#" onclick="loadSection('upper.html')">UPPER</a>
+              <a href="#" onclick="loadSection('lower.html')">LOWER</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-container-thin">
+          <div class="tab__header-thin" onclick="toggle(this)">
+            <strong>Numeric</strong>
+          </div>
+          <div class="tab-content-thin">
+            <div class="learning-resource-container">
+              <a href="#" onclick="loadSection('rand.html')">RAND</a>
+              <a href="#" onclick="loadSection('round.html')">ROUND</a>
+              <a href="#" onclick="loadSection('floor.html')">FLOOR</a>
+              <a href="#" onclick="loadSection('ceil.html')">CEIL</a>
+              <div class="dropdown-container-thin">
+                <div class="tab__header-thin" onclick="toggle(this)">
+                  <strong>Math</strong>
+                </div>
+                <div class="tab-content-thin">
+                  <div class="learning-resource-container">
+                    <a href="#" onclick="loadSection('abs.html')">ABS</a>
+                    <a href="#" onclick="loadSection('power.html')">POWER</a>
+                    <a href="#" onclick="loadSection('sqrt.html')">SQRT</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dropdown-container-thin">
+          <div class="tab__header-thin" onclick="toggle(this)">
+            <strong>Date</strong>
+          </div>
+          <div class="tab-content-thin">
+            <div class="learning-resource-container">
+              <a href="#" onclick="loadSection('current_timestamp.html')">CURRENT_TIMESTAMP</a>
+              <a href="#" onclick="loadSection('year.html')">YEAR</a>
+              <a href="#" onclick="loadSection('month.html')">MONTH</a>
+              <a href="#" onclick="loadSection('day.html')">DAY</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="dropdown-container-thin">
+        <div class="tab__header-thin" onclick="toggle(this)">
+          <strong>Tables</strong>
+        </div>
+        <div class="tab-content-thin">
+          <div class="learning-resource-container">
+            <a href="#" onclick="loadSection('datatypes.html')">Datatypes</a>
+            <a href="#" onclick="loadSection('create-table.html')">Create Table</a>
+            <a href="#" onclick="loadSection('drop-table.html')">Drop Table</a>
+            <a href="#" onclick="loadSection('alter-table.html')">Alter Table</a>
+            <a href="#" onclick="loadSection('constraint.html')">Constraint</a>
+            <a href="#" onclick="loadSection('not-null.html')">Not Null</a>
+            <a href="#" onclick="loadSection('unique.html')">Unique</a>
+            <a href="#" onclick="loadSection('primary-key.html')">Primary Key</a>
+            <a href="#" onclick="loadSection('foreign-key.html')">Foreign Key</a>
+            <a href="#" onclick="loadSection('check.html')">Check</a>
+            <a href="#" onclick="loadSection('default.html')">Default</a>
+            <a href="#" onclick="loadSection('auto-increment.html')">Auto Increment</a>
+            <a href="#" onclick="loadSection('index-sql.html')">Index</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content" id="content">
+    <!-- Aquí se cargan los HTML -->
+  </div>
+
+  <!-- Prism JS -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
+
+  <script>
+    function toggle(el) {
+      let content = el.nextElementSibling;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+
+    function loadSection(file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('content').innerHTML = data;
+          Prism.highlightAll();
+        });
+    }
+
+    // Cargar por defecto
+    loadSection('start.html');
+  </script>
+
+</body>
+
+</html>

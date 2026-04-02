@@ -1,0 +1,53 @@
+<!-- SECCIÓN OPERATORS -->
+<div id="operators-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL AND, OR and NOT Operators</h1>
+
+            <p>The WHERE clause can be combined with AND, OR, and NOT operators.</p>
+
+            <p>The AND and OR operators are used to filter records based on more than one condition:</p>
+
+            <p>- The AND operator displays a record if all the conditions separated by AND are TRUE.</p>
+            <p>- The OR operator displays a record if any of the conditions separated by OR is TRUE.</p>
+
+            <p>The NOT operator displays a record if the condition(s) is NOT TRUE.</p>
+
+            <h2>AND Syntax</h2>
+            <pre><code class="language-sql">SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;</code></pre>
+
+            <h2>OR Syntax</h2>
+            <pre><code class="language-sql">SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;</code></pre>
+
+            <h2>NOT Syntax</h2>
+            <pre><code class="language-sql">SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;</code></pre>
+
+            <h2>AND Example</h2>
+            <p>The following SQL statement selects all fields from "patients" where first_name is "John" AND city is
+                "Toronto":</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE first_name = 'John' AND city = 'Toronto';</code></pre>
+
+            <h2>OR Example</h2>
+            <p>The following SQL statement selects all fields from "patients" where city is "Hamilton" OR "Toronto":</p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE city = 'Hamilton' OR city = 'Toronto';</code></pre>
+
+            <h2>NOT Example</h2>
+            <p>The following SQL statement selects all fields from "patients" where province_id is NOT "ON" (Ontario):
+            </p>
+
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE NOT province_id = 'ON';</code></pre>
+        </div>
+    </div>
+</div>

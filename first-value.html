@@ -1,0 +1,43 @@
+<!-- SECCIÓN FIRST_VALUE WINDOW FUNCTION -->
+<div id="first-value-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL FIRST_VALUE() Window Function</h1>
+
+            <p>The <strong>FIRST_VALUE()</strong> function is a window function that returns the first value in an
+                ordered partition of a result set.</p>
+
+            <h2>Syntax</h2>
+            <pre><code class="language-sql">FIRST_VALUE ( scalar_expression )  
+OVER ( 
+    [PARTITION BY partition_expression, ... ]
+    ORDER BY sort_expression [ASC | DESC], ...
+)</code></pre>
+
+            <h2>Parameter Values</h2>
+            <ul>
+                <li><strong>scalar_expression</strong>: Required. An expression evaluated against the value of the first
+                    row in an ordered partition. Can be a column, subquery, or expression that evaluates to a single
+                    value. Cannot be a window function.</li>
+            </ul>
+
+            <h2>FIRST_VALUE() Example</h2>
+            <p>The following SQL statement displays the oldest patient's <strong>birth_date</strong> for the province
+                the patient is in:</p>
+
+            <pre><code class="language-sql">SELECT
+  patient_id,
+  province_id,
+  FIRST_VALUE(birth_date) 
+    OVER(
+      PARTITION BY province_id   -- group by province_id
+      ORDER BY birth_date         -- order by birth_date
+      ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+    ) AS oldest_birth_date
+FROM patients
+ORDER BY patient_id;</code></pre>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- SECCIÓN NULL VALUES -->
+<div id="nullvalues-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL NULL Values</h1>
+
+            <h2>What is a NULL Value?</h2>
+            <p>A field with a NULL value is a field with no value.</p>
+            <p>If a field in a table is optional, it is possible to insert a new record or update a record without
+                adding a value to this field. Then, the field will be saved with a NULL value.</p>
+
+            <h2>How to Test for NULL Values?</h2>
+            <p>It is not possible to test for NULL values with comparison operators, such as =, &lt;, or &lt;&gt;.</p>
+            <p>We have to use the <strong>IS NULL</strong> and <strong>IS NOT NULL</strong> operators instead.</p>
+
+            <h3>IS NULL Syntax</h3>
+            <pre><code class="language-sql">SELECT column_names
+FROM table_name
+WHERE column_name IS NULL;</code></pre>
+
+            <h3>IS NOT NULL Syntax</h3>
+            <pre><code class="language-sql">SELECT column_names
+FROM table_name
+WHERE column_name IS NOT NULL;</code></pre>
+
+            <h2>The IS NULL Operator</h2>
+            <p>The IS NULL operator is used to test for empty values (NULL values).</p>
+            <p>The following SQL lists all patients with a NULL value in the "allergies" field:</p>
+            <pre><code class="language-sql">SELECT *
+FROM patients
+WHERE allergies IS NULL;</code></pre>
+        </div>
+    </div>
+</div>

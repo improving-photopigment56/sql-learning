@@ -1,0 +1,31 @@
+<!-- SECCIÓN CONCAT STRING FUNCTION -->
+<div id="concat-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL CONCAT() Function</h1>
+
+            <p>The <strong>CONCAT()</strong> function adds two or more expressions together.</p>
+
+            <p><strong>Note:</strong> Depending on the SQL language, there may be built-in syntax for concatenation such
+                as <code>+</code> or <code>||</code>.</p>
+
+            <h2>Syntax</h2>
+            <pre><code class="language-sql">CONCAT(expression1, expression2, expression3, ...)</code></pre>
+
+            <h2>Parameter Values</h2>
+            <ul>
+                <li><strong>expression1, expression2, expression3, etc.</strong>: Required. The expressions to add
+                    together. If any expression is NULL, the result will be NULL.</li>
+            </ul>
+
+            <h2>CONCAT() Example</h2>
+            <p>The following SQL statement concatenates the <strong>first_name</strong> and <strong>last_name</strong>
+                of each patient:</p>
+
+            <pre><code class="language-sql">SELECT CONCAT(first_name,' ', last_name) AS full_name
+FROM patients;</code></pre>
+
+        </div>
+    </div>
+</div>

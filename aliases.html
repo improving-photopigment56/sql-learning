@@ -1,0 +1,36 @@
+<!-- SECCIÓN ALIASES -->
+<div id="aliases-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL Aliases</h1>
+
+            <p>SQL aliases are used to give a table, or a column in a table, a temporary name. Aliases are often used to
+                make column names more readable.</p>
+            <p>An alias only exists for the duration of that query. An alias is created with the <strong>AS</strong>
+                keyword. Depending on the SQL dialect, the AS keyword may be optional.</p>
+
+            <h2>Alias Column Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name AS alias_name
+FROM table_name;</code></pre>
+
+            <h2>Alias Table Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name AS alias_name;</code></pre>
+
+            <h2>Alias for Columns Examples</h2>
+            <p>The following SQL statement creates two aliases, one for the <code>weight</code> column and one for the
+                <code>height</code> column:</p>
+            <pre><code class="language-sql">SELECT avg(weight) AS average_weight,
+       avg(height) AS average_height
+FROM patients;</code></pre>
+
+            <h2>Alias for Tables Example</h2>
+            <p>The following SQL renames the <code>admissions</code> table as 'a' and the <code>patients</code> table as
+                'p':</p>
+            <pre><code class="language-sql">SELECT *
+FROM patients AS p
+  JOIN admissions AS a ON a.patient_id = p.patient_id;</code></pre>
+        </div>
+    </div>
+</div>

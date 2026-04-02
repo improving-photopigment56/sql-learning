@@ -1,0 +1,49 @@
+<!-- SECCIÓN ALTER TABLE -->
+<div id="alter-table-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL ALTER TABLE Statement</h1>
+
+            <p>The <strong>ALTER TABLE</strong> statement is used to add, delete, or modify columns in an existing
+                table.
+                It is also used to add or drop various constraints on an existing table.</p>
+            <p><strong>Note:</strong> ALTER/MODIFY COLUMN syntax is not supported in this tutorial.</p>
+
+            <h2>ALTER TABLE - ADD Column Syntax</h2>
+            <pre><code class="language-sql">ALTER TABLE table_name
+ADD column_name datatype;</code></pre>
+
+            <p>Example: Add an "email" column to the "patients" table:</p>
+            <pre><code class="language-sql">ALTER TABLE patients
+ADD email varchar(255);
+
+SELECT patient_id, email FROM patients;</code></pre>
+
+            <h2>ALTER TABLE - DROP COLUMN Syntax</h2>
+            <p>To delete a column in a table:</p>
+            <pre><code class="language-sql">ALTER TABLE table_name
+DROP COLUMN column_name;</code></pre>
+
+            <p>Example: Delete the "last_name" column from the "patients" table:</p>
+            <pre><code class="language-sql">ALTER TABLE patients
+DROP COLUMN last_name;
+
+SELECT * FROM patients;</code></pre>
+
+            <h2>ALTER TABLE - ALTER/MODIFY COLUMN Syntax</h2>
+            <p>To change the data type of a column in a table:</p>
+            <pre><code class="language-sql">-- SQL Server / MS Access
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+
+-- MySQL / Oracle (prior to 10G)
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+
+-- Oracle 10G and later
+ALTER TABLE table_name
+MODIFY column_name datatype;</code></pre>
+        </div>
+    </div>
+</div>

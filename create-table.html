@@ -1,0 +1,46 @@
+<!-- SECCIÓN CREATE TABLE -->
+<div id="create-table-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL CREATE TABLE Statement</h1>
+
+            <p>The <strong>CREATE TABLE</strong> statement is used to create a new table in a database.</p>
+
+            <h2>CREATE TABLE Syntax</h2>
+            <pre><code class="language-sql">CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    column3 datatype,
+    ...
+);</code></pre>
+            <p>The <em>column</em> parameters specify the names of the columns, and the <em>datatype</em> parameter
+                specifies the type of data the column can hold (e.g., varchar, integer, date).</p>
+
+            <h2>SQL CREATE TABLE Example</h2>
+            <p>Create a table called <strong>Persons</strong> with 5 columns:</p>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255)
+);</code></pre>
+
+            <h2>Create Table Using Another Table</h2>
+            <p>You can create a new table as a copy of an existing table. All or specific columns can be selected:</p>
+            <pre><code class="language-sql">CREATE TABLE new_table_name AS
+SELECT column1, column2,...
+FROM existing_table_name
+WHERE ...;</code></pre>
+
+            <p>Example: Copy selected columns from the <strong>patients</strong> table:</p>
+            <pre><code class="language-sql">CREATE TABLE TestPatients AS
+SELECT patient_id, first_name, last_name
+FROM patients;
+
+-- Verify the new table
+SELECT * FROM TestPatients;</code></pre>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<!-- SECCIÓN IFNULL / NULL HANDLING -->
+<div id="ifnull-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL IFNULL(), ISNULL(), COALESCE(), and NVL() Functions</h1>
+
+            <p>The IFNULL function goes by many names depending on what SQL dialect you are using. We use IFNULL but
+                your specific language may use ISNULL, COALESCE, or NVL — most function the same.</p>
+
+            <h2>Example Table</h2>
+            <pre><code class="language-sql">SELECT first_name, allergies FROM patients;</code></pre>
+            <p>The <code>allergies</code> column displays NULL for some rows. We want it to display a default value
+                instead.</p>
+
+            <h2>Solutions</h2>
+
+            <h3>MySQL</h3>
+            <p>The IFNULL() function returns an alternative value if an expression is NULL:</p>
+            <pre><code class="language-sql">SELECT first_name, IFNULL(allergies,'none') AS allergies
+FROM patients;</code></pre>
+            <p>Or using COALESCE():</p>
+            <pre><code class="language-sql">SELECT first_name, COALESCE(allergies,'none') AS allergies
+FROM patients;</code></pre>
+
+            <h3>SQL Server</h3>
+            <p>The ISNULL() function returns an alternative value if the expression is NULL:</p>
+            <pre><code class="language-sql">SELECT first_name, ISNULL(allergies,'none') AS allergies
+FROM patients;</code></pre>
+
+            <h3>MS Access</h3>
+            <p>The IsNull() function returns TRUE (1) if the expression is NULL, otherwise FALSE (0):</p>
+            <pre><code class="language-sql">SELECT first_name, IIF(ISNULL(allergies,0),allergies) AS allergies
+FROM patients;</code></pre>
+
+            <h3>Oracle</h3>
+            <p>The NVL() function achieves the same result:</p>
+            <pre><code class="language-sql">SELECT first_name, NVL(allergies,'none') AS allergies
+FROM patients;</code></pre>
+        </div>
+    </div>
+</div>

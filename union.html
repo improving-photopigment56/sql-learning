@@ -1,0 +1,48 @@
+<!-- SECCIÓN UNION -->
+<div id="union-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL UNION Operator</h1>
+
+            <p>The UNION operator is used to combine the result-set of two or more SELECT statements.</p>
+
+            <p>- Every SELECT statement within UNION must have the same number of columns</p>
+            <p>- The columns must also have similar data types</p>
+            <p>- The columns in every SELECT statement must also be in the same order</p>
+
+            <h2>UNION Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s) FROM table1
+UNION
+SELECT column_name(s) FROM table2;</code></pre>
+
+            <h2>UNION ALL Syntax</h2>
+            <p>The UNION operator selects only distinct values by default. To allow duplicate values, use UNION ALL:</p>
+
+            <pre><code class="language-sql">SELECT column_name(s) FROM table1
+UNION ALL
+SELECT column_name(s) FROM table2;</code></pre>
+
+            <p><strong>Note:</strong> The column names in the result-set are usually equal to the column names in the
+                first SELECT statement.</p>
+
+            <h2>SQL UNION Example</h2>
+            <p>The following SQL statement returns the first_names (only distinct values) from both the "patients" and
+                the "doctors" table:</p>
+
+            <pre><code class="language-sql">SELECT first_name FROM patients
+UNION
+SELECT first_name FROM doctors
+ORDER BY first_name;</code></pre>
+
+            <h2>SQL UNION ALL Example</h2>
+            <p>The following SQL statement returns the first_names (duplicate values also) from both the "patients" and
+                the "doctors" table:</p>
+
+            <pre><code class="language-sql">SELECT first_name FROM patients
+UNION ALL
+SELECT first_name FROM doctors
+ORDER BY first_name;</code></pre>
+        </div>
+    </div>
+</div>

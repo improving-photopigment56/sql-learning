@@ -1,0 +1,44 @@
+<!-- SECCIÓN UPDATE -->
+<div id="update-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL UPDATE Statement</h1>
+            <p>The UPDATE statement is used to modify the existing records in a table.</p>
+
+            <h2>UPDATE Syntax</h2>
+            <pre><code class="language-sql">UPDATE tablename
+SET column1 = value1, column2 = value2, ...
+WHERE condition;</code></pre>
+
+            <p><strong>Note:</strong> Be sure to specify the where clause. Failing to include the where clause will
+                result in all of the rows to be updated.</p>
+
+            <h2>SQL UPDATE Example</h2>
+            <p>The following SQL statement updates the first patient (patient_id = 1) with a new first_name and a new
+                weight.</p>
+
+            <pre><code class="language-sql">UPDATE patients
+SET
+  first_name = 'John',
+  weight = 120
+WHERE patient_id = 1;
+
+-- display the patient we just updated
+SELECT * FROM patients WHERE patient_id = 1;</code></pre>
+
+            <h2>UPDATE Multiple Records</h2>
+            <p>It is the WHERE clause that determines how many records will be updated.</p>
+
+            <p>The following SQL statement will update the allergies to 'NKA' (no known allergies) for all records where
+                allergies is NULL</p>
+
+            <pre><code class="language-sql">UPDATE patients
+SET allergies = 'NKA'
+WHERE allergies IS NULL;
+
+-- display the patients table
+SELECT * FROM patients;</code></pre>
+        </div>
+    </div>
+</div>

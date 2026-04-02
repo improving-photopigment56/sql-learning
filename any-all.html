@@ -1,0 +1,52 @@
+<!-- SECCIÓN ANY / ALL -->
+<div id="anyall-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL ANY and ALL Operators</h1>
+
+            <p>The ANY and ALL operators allow you to perform a comparison between a single column value and a range of
+                other values.</p>
+            <p><strong>DISCLAIMER:</strong> This tool does not support the Any/All Operator.</p>
+
+            <h2>The SQL ANY Operator</h2>
+            <p>The ANY operator:</p>
+            <ul>
+                <li>returns a boolean value as a result</li>
+                <li>returns TRUE if ANY of the subquery values meet the condition</li>
+            </ul>
+            <p>ANY means that the condition will be true if the operation is true for any of the values in the range.
+            </p>
+
+            <h3>ANY Syntax</h3>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+  (SELECT column_name
+   FROM table_name
+   WHERE condition);</code></pre>
+
+            <h2>The SQL ALL Operator</h2>
+            <p>The ALL operator:</p>
+            <ul>
+                <li>returns a boolean value as a result</li>
+                <li>returns TRUE if ALL of the subquery values meet the condition</li>
+                <li>is used with SELECT, WHERE and HAVING statements</li>
+            </ul>
+            <p>ALL means that the condition will be true only if the operation is true for all values in the range.</p>
+
+            <h3>ALL Syntax With SELECT</h3>
+            <pre><code class="language-sql">SELECT ALL column_name(s)
+FROM table_name
+WHERE condition;</code></pre>
+
+            <h3>ALL Syntax With WHERE or HAVING</h3>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+  (SELECT column_name
+   FROM table_name
+   WHERE condition);</code></pre>
+        </div>
+    </div>
+</div>

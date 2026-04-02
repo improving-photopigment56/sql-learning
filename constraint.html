@@ -1,0 +1,39 @@
+<!-- SECCIÓN CONSTRAINTS -->
+<div id="constraint-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL Constraints</h1>
+
+            <p>SQL constraints are used to specify rules for data in a table.</p>
+            <p>Constraints can be specified when the table is created with the <strong>CREATE TABLE</strong> statement,
+                or after the table is created with the <strong>ALTER TABLE</strong> statement.</p>
+
+            <h2>CREATE Table with Constraints Syntax</h2>
+            <pre><code class="language-sql">CREATE TABLE table_name (
+    column1 datatype constraint,
+    column2 datatype constraint,
+    column3 datatype constraint,
+    ....
+);</code></pre>
+
+            <h2>About SQL Constraints</h2>
+            <p>Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and
+                reliability of the data.
+                If a constraint is violated, the action is aborted.</p>
+            <p>Constraints can be <strong>column level</strong> (applies to a single column) or <strong>table
+                    level</strong> (applies to the whole table).</p>
+
+            <h2>Common SQL Constraints</h2>
+            <ul>
+                <li><strong>NOT NULL</strong> - Ensures that a column cannot have a NULL value</li>
+                <li><strong>UNIQUE</strong> - Ensures that all values in a column are different</li>
+                <li><strong>PRIMARY KEY</strong> - A combination of NOT NULL and UNIQUE. Uniquely identifies each row in
+                    a table</li>
+                <li><strong>FOREIGN KEY</strong> - Prevents actions that would destroy links between tables</li>
+                <li><strong>CHECK</strong> - Ensures that the values in a column satisfy a specific condition</li>
+                <li><strong>DEFAULT</strong> - Sets a default value for a column if no value is specified</li>
+            </ul>
+        </div>
+    </div>
+</div>

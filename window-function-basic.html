@@ -1,0 +1,114 @@
+<!-- SECCIÓN WINDOW FUNCTIONS -->
+<div id="window-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL Window Functions</h1>
+
+            <p><strong>Introduction to SQL Window Functions</strong></p>
+
+            <p>The aggregate functions (SUM, AVG, COUNT, MIN, MAX, etc) perform calculations across a set of rows and
+                return a single output row.</p>
+
+            <p>The following query uses the AVG() aggregate function to calculate the average weight of all patients:
+            </p>
+            <pre><code class="language-sql">SELECT 
+    AVG(weight) as avg_weight
+FROM
+    patients;</code></pre>
+
+            <p>As shown, all rows are grouped into a single row. A window function does not group rows into a single
+                row.</p>
+
+            <p>Using AVG() as a window function:</p>
+            <pre><code class="language-sql">SELECT 
+    first_name,
+    last_name,
+    weight,
+    AVG(weight) OVER() as avg_weight
+FROM
+    patients;</code></pre>
+
+            <p>The <strong>OVER()</strong> clause signals that AVG() is used as a window function.</p>
+
+            <img src="sql-window-functions.png" alt="SQL Window Functions"
+                style="max-width: 50%; height: auto; margin: 20px 0;">
+
+            <h2>Window Function Syntax</h2>
+            <pre><code class="language-sql">window_function_name ( expression ) OVER (
+    partition_clause
+    order_clause
+    frame_clause
+)</code></pre>
+
+            <p><strong>Clauses explanation:</strong></p>
+            <ul>
+                <li><strong>window_function_name</strong>: ROW_NUMBER(), RANK(), SUM(), AVG(), etc.</li>
+                <li><strong>expression</strong>: the target column or expression.</li>
+                <li><strong>OVER clause</strong>: defines partitions and order of rows.</li>
+                <li><strong>partition_clause</strong>: divides rows into partitions. Syntax: PARTITION BY expr1, expr2,
+                    ...</li>
+                <li><strong>order_clause</strong>: orders rows in a partition. Syntax: ORDER BY expression [ASC|DESC]
+                    [NULL {FIRST|LAST}], ...</li>
+                <li><strong>frame_clause</strong>: subset of the partition. Syntax: {ROWS|RANGE} frame_start [{BETWEEN
+                    frame_start AND frame_end}]</li>
+            </ul>
+
+            <p><strong>Frame options:</strong></p>
+
+            <img src="sql-window-function-frame.png" alt="SQL Window Functions Frame"
+                style="max-width: 50%; height: auto; margin: 20px 0;">
+
+            <ul>
+                <li>UNBOUNDED PRECEDING: starts at first row of partition</li>
+                <li>N PRECEDING: starts N rows before current row</li>
+                <li>CURRENT ROW: current row</li>
+                <li>UNBOUNDED FOLLOWING: ends at last row</li>
+                <li>N FOLLOWING: ends N rows after current row</li>
+            </ul>
+
+            <p><strong>Window function types:</strong></p>
+            <ul>
+                <li>Value window functions: FIRST_VALUE(), LAST_VALUE(), LAG(), LEAD()</li>
+                <li>Ranking window functions: CUME_DIST(), DENSE_RANK(), NTILE(), PERCENT_RANK(), RANK(), ROW_NUMBER()
+                </li>
+                <li>Aggregate window functions: AVG(), COUNT(), MAX(), MIN(), SUM()</li>
+            </ul>
+
+            <h2>Filtering By Window Function Result</h2>
+            <p>The result of a window function cannot be filtered by WHERE or HAVING. Use a WITH clause to create a
+                temporary table.</p>
+
+            <p>Rolling sum example:</p>
+            <pre><code class="language-sql">SELECT
+  patient_id,
+  first_name,
+  weight,
+  sum(weight) over(order by patient_id) as rolling_sum
+FROM patients;</code></pre>
+
+            <p>Incorrect filtering (does not work):</p>
+            <pre><code class="language-sql">SELECT
+  patient_id,
+  first_name,
+  weight,
+  sum(weight) over(order by patient_id) as rolling_sum
+FROM patients
+WHERE rolling_sum < 1000;</code></pre>
+
+            <p>Correct filtering using WITH:</p>
+            <pre><code class="language-sql">WITH rolling_sum_table AS (
+    SELECT
+      patient_id,
+      first_name,
+      weight,
+      sum(weight) over(order by patient_id) as rolling_sum
+    FROM patients
+)
+SELECT *
+FROM rolling_sum_table
+WHERE rolling_sum < 1000;</code></pre>
+
+        </div>
+    </div>
+</div>

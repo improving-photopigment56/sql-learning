@@ -1,0 +1,39 @@
+<!-- SECCIÓN IN -->
+<div id="in-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL IN Operator</h1>
+
+            <p>The IN operator allows you to specify multiple values in a WHERE clause.</p>
+            <p>The IN operator is a shorthand for multiple OR conditions.</p>
+
+            <h2>IN Syntax</h2>
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);</code></pre>
+
+            <p>or:</p>
+
+            <pre><code class="language-sql">SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (SELECT STATEMENT);</code></pre>
+
+            <h2>IN Operator Examples</h2>
+
+            <p>The following SQL statement selects all patients that are located in "SK", "AB" or "MB":</p>
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE province_id IN ('SK', 'AB', 'MB');</code></pre>
+
+            <p>The following SQL statement selects all patients that are NOT located in "SK", "AB" or "MB":</p>
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE province_id NOT IN ('SK', 'AB', 'MB');</code></pre>
+
+            <p>The following SQL statement selects all patients that have the same first_name as a doctor:</p>
+            <pre><code class="language-sql">SELECT * FROM patients
+WHERE first_name IN (SELECT first_name FROM doctors);
+
+-- Try running just the sub query to see the list</code></pre>
+        </div>
+    </div>
+</div>

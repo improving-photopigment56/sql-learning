@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Learning - Start</title>
+
+    <!-- Prism CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.css" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Fira Code', monospace;
+            background: #0f1117;
+            color: #e6e6e6;
+            display: flex;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 300px;
+            background: #151922;
+            padding: 15px;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 2px solid #2c2f3a;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background-color: #ff4b5c;
+            border-radius: 10px;
+        }
+
+        .tab__header strong {
+            font-size: 20px;
+            color: #ff4b5c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .tab__header-thin {
+            cursor: pointer;
+            padding: 10px 15px;
+            background: #1c2230;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: all 0.2s ease;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .tab__header-thin:hover {
+            background: #ff4b5c;
+            color: #fff;
+        }
+
+        .tab-content-thin {
+            display: none;
+            padding-left: 15px;
+            margin-bottom: 10px;
+        }
+
+        .learning-resource-container a {
+            display: block;
+            padding: 8px 12px;
+            margin: 4px 0;
+            background: #22293a;
+            color: #ff4b5c;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .learning-resource-container a:hover {
+            background: #ff4b5c;
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        /* CONTENT */
+        .content {
+            flex: 1;
+            padding: 40px 60px;
+            overflow-y: auto;
+            background: #0f1117;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            color: #ff4b5c;
+            border-bottom: 2px solid #ff4b5c;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            margin-top: 30px;
+            color: #ff6f81;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .content ul li {
+            margin-bottom: 8px;
+        }
+
+        .btn-link {
+            display: inline-block;
+            padding: 8px 15px;
+            margin: 5px 0;
+            background: #ff4b5c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background: #ff6f81;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CONTENT -->
+    <div class="content" id="content">
+        <h1>Bienvenido a SQL Cheatsheet</h1>
+        <p>SQL (Structured Query Language) es un lenguaje estándar utilizado para interactuar con bases de datos
+            relacionales.
+            Permite crear, modificar y consultar datos de manera eficiente. Esta cheatsheet está diseñada para ayudarte
+            a
+            aprender y recordar las instrucciones más comunes de SQL.</p>
+
+        <h2>Qué aprenderás aquí:</h2>
+        <ul>
+            <li><strong>Query Basics:</strong> SELECT, INSERT, UPDATE, DELETE y WHERE.</li>
+            <li><strong>Filtrado y orden:</strong> Operadores, ORDER BY, LIKE, IN, BETWEEN, GROUP BY y HAVING.</li>
+            <li><strong>Funciones:</strong> Funciones agregadas (COUNT, SUM, AVG, MAX, MIN), de cadena, numéricas y de
+                fecha.</li>
+            <li><strong>Tablas y Constraints:</strong> CREATE, ALTER, DROP TABLE, PRIMARY KEY, FOREIGN KEY, UNIQUE,
+                CHECK, DEFAULT.</li>
+            <li><strong>Índices y Auto Increment:</strong> Mejora el rendimiento de las consultas con índices y claves
+                autoincrementales.</li>
+        </ul>
+
+        <h2>Empezar a aprender:</h2>
+        <p>Puedes hacer clic en los siguientes enlaces para explorar cada sección:</p>
+        <a href="#" class="btn-link" onclick="loadSection('select.html')">SELECT Statement</a>
+        <a href="#" class="btn-link" onclick="loadSection('create-table.html')">Create Table</a>
+        <a href="#" class="btn-link" onclick="loadSection('count.html')">Funciones Agregadas</a>
+        <a href="#" class="btn-link" onclick="loadSection('index-sql.html')">Índices</a>
+        <a style="color:#ff4b5c;">........</a>
+    </div>
+
+    <!-- Prism JS -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
+
+    <script>
+        function toggle(el) {
+            let content = el.nextElementSibling;
+            content.style.display = content.style.display === "block" ? "none" : "block";
+            el.classList.toggle('active');
+        }
+
+        function loadSection(file) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('content').innerHTML = data;
+                    Prism.highlightAll();
+                });
+        }
+    </script>
+
+</body>
+
+</html>

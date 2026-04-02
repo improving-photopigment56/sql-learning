@@ -1,0 +1,30 @@
+<!-- SECCIÓN LEN STRING FUNCTION -->
+<div id="len-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL LEN() Function</h1>
+
+            <p>The <strong>LEN()</strong> function returns the length of a string in bytes.</p>
+
+            <p><strong>Note:</strong> Depending on the SQL language, LEN() may also be called <strong>LENGTH()</strong>.
+            </p>
+
+            <h2>Syntax</h2>
+            <pre><code class="language-sql">LEN(string)</code></pre>
+
+            <h2>Parameter Values</h2>
+            <ul>
+                <li><strong>string</strong>: Required. The string to calculate the length for.</li>
+            </ul>
+
+            <h2>LEN() Example</h2>
+            <p>The following SQL statement shows each patient's <strong>first_name</strong> and the length of that name:
+            </p>
+
+            <pre><code class="language-sql">SELECT first_name, LEN(first_name) AS length_of_name
+FROM patients;</code></pre>
+
+        </div>
+    </div>
+</div>

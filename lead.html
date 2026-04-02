@@ -1,0 +1,33 @@
+<!-- SECCIÓN LEAD WINDOW FUNCTION -->
+<div id="lead-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL LEAD() Window Function</h1>
+
+            <p>The <strong>LEAD()</strong> function returns the record offset by the specified amount forward.</p>
+
+            <h2>Syntax</h2>
+            <pre><code class="language-sql">LEAD(expression [, offset])</code></pre>
+
+            <h2>Parameter Values</h2>
+            <ul>
+                <li><strong>expression</strong>: Required. The value to be returned based on the specified offset. Must
+                    be a scalar value; cannot be an analytic function.</li>
+                <li><strong>offset</strong>: Optional. Number of rows forward from the current row. Default is 1. Must
+                    be positive; cannot be negative or an analytic function.</li>
+            </ul>
+
+            <h2>LEAD() Example</h2>
+            <p>The following SQL statement displays each patient's <strong>first_name</strong> along with the
+                <strong>first_name</strong> of the next patient:</p>
+
+            <pre><code class="language-sql">SELECT
+  patient_id,
+  first_name,
+  LEAD(first_name, 1) OVER() AS next_name
+FROM patients;</code></pre>
+
+        </div>
+    </div>
+</div>

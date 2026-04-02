@@ -1,0 +1,66 @@
+<!-- SECCIÓN UNIQUE -->
+<div id="unique-section">
+    <div id="adsense-container" style="width: 350px; position: absolute; left: 0px;"></div>
+    <div class="inner-modal">
+        <div class="inner" style="padding: 0px;">
+            <h1>SQL UNIQUE Constraint</h1>
+
+            <p>The <strong>UNIQUE</strong> constraint ensures that all values in a column are different.</p>
+            <p>Both the UNIQUE and PRIMARY KEY constraints provide a guarantee for uniqueness for a column or set of
+                columns. A PRIMARY KEY constraint automatically has a UNIQUE constraint.</p>
+            <p>You can have many UNIQUE constraints per table, but only one PRIMARY KEY constraint per table.</p>
+
+            <h2>UNIQUE Constraint on CREATE TABLE</h2>
+            <p>The following SQL creates a UNIQUE constraint on the "ID" column when the "Persons" table is created:</p>
+            <pre><code class="language-sql">-- SQL Server / Oracle / MS Access
+CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+-- display the empty table Persons
+SELECT * FROM Persons;</code></pre>
+
+            <p>MySQL alternative syntax:</p>
+            <pre><code class="language-sql">CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    UNIQUE (ID)
+);</code></pre>
+
+            <p>To name a UNIQUE constraint or define it on multiple columns:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    CONSTRAINT UC_Person UNIQUE (ID, LastName)
+);</code></pre>
+
+            <h2>UNIQUE Constraint on ALTER TABLE</h2>
+            <p>To create a UNIQUE constraint on the "ID" column after the table is already created:</p>
+            <pre><code class="language-sql">-- MySQL / SQL Server / Oracle / MS Access
+ALTER TABLE Persons
+ADD UNIQUE (ID);
+
+-- Naming or multiple columns
+ALTER TABLE Persons
+ADD CONSTRAINT UC_Person UNIQUE (ID, LastName);</code></pre>
+
+            <h2>Drop a UNIQUE Constraint</h2>
+            <p>To drop a UNIQUE constraint:</p>
+            <pre><code class="language-sql">-- MySQL
+ALTER TABLE Persons
+DROP INDEX UC_Person;
+
+-- SQL Server / Oracle / MS Access
+ALTER TABLE Persons
+DROP CONSTRAINT UC_Person;</code></pre>
+        </div>
+    </div>
+</div>
